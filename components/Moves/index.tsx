@@ -28,8 +28,8 @@ const Moves = ({ moves }: {moves: PokemonDetails['moves']}) => {
         }
       </TouchableOpacity>
       {
-        dataToRender.map(move => (
-          <View style={styles.abilityContainer}>
+        dataToRender.map((move, idx) => (
+          <View key={`key-${idx}-${move.move.name}`} style={styles.abilityContainer}>
             <Text style={styles.defaulText}>{capitalizeFirstLetter(move.move.name)}</Text>
           </View>
         ))

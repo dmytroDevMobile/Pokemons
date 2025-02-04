@@ -82,10 +82,10 @@ const Stats = ({ stat }: {stat: Stat}) => {
 const Details = ({route}: StaticScreenProps<RootStackParamList[Screens.Details]>) => {
   const details = route.params.details;
 
-  const renderStats = useMemo(() => details.stats?.map(stat => <Stats stat={stat} />), [details]);
+  const renderStats = useMemo(() => details.stats?.map((stat, idx) => <Stats key={`key-${idx}-${stat.stat.name}`} stat={stat} />), [details]);
 
-  const renderAbilities = useMemo(() => details.abilities?.map(ability => (
-    <View style={styles.abilityContainer}>
+  const renderAbilities = useMemo(() => details.abilities?.map((ability, idx) => (
+    <View key={`key-${idx}-${ability.ability.name}`} style={styles.abilityContainer}>
       <Text style={styles.defaulText}>{capitalizeFirstLetter(ability.ability.name)}</Text>
     </View>
   )), [details]);
