@@ -1,9 +1,13 @@
-import { PokemonDetails } from '@/features/requests/fetchDetails';
+import { PokemonDetails } from '@/features/list/types';
 import { capitalizeFirstLetter } from '@/utils/helpers';
 import React, { useMemo, useState } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-const Moves = ({ moves }: {moves: PokemonDetails['moves']}) => {
+interface MovesProps {
+  moves: PokemonDetails['moves'];
+}
+
+const Moves = ({ moves }: MovesProps) => {
   const [isOpened, setOpened] = useState<boolean>(false);
 
   const dataToRender = useMemo(() => !isOpened ? moves.slice(0, 5) : moves, [moves, isOpened]);

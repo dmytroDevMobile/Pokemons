@@ -7,7 +7,11 @@ import { StatColors } from '@/constants/Colors';
 import styles from './styles';
 import { Stat } from '@/features/list/types';
 
-const Stats = ({ stat }: {stat: Stat}) => {
+interface StatsProp {
+  stat: Stat;
+};
+
+const Stats = ({ stat }: StatsProp) => {
   const aV = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
