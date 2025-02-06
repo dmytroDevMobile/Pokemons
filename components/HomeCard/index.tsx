@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, TouchableOpacity, View } from 'react-native';
+import { Image, View } from 'react-native';
 import styles from './styles';
-import { Text } from 'react-native-paper';
+import { Card, Text } from 'react-native-paper';
 import { capitalizeFirstLetter } from '@/utils/helpers';
 import { PokemonTypes } from '../PokemonTypes';
 import { PokemonListItem } from '@/features/list/types';
@@ -16,9 +16,8 @@ const HomeCard = ({item, index, onItemPress}: HomeCardProps) => {
   const onPress = () => onItemPress(item.details);
 
   return (
-    <TouchableOpacity
+    <Card
       key={`pokemon-${item.details.id}-key`}
-      activeOpacity={0.9}
       onPress={onPress}
       style={
         [
@@ -33,11 +32,14 @@ const HomeCard = ({item, index, onItemPress}: HomeCardProps) => {
         <Text>{capitalizeFirstLetter(item.details.name)}</Text>
         <Text># {item.details.order}</Text>
       </View>
-      <Image source={{ uri: item.details.sprites.other.home.front_default }} style={styles.image}/>
-      <View style={styles.wrap}>
+      <Image
+        source={{ uri: item.details.sprites.other.home.front_default }}
+        style={[styles.image, styles.centerSelf]}
+      />
+      <View style={[styles.wrap, styles.centerSelf]}>
         <PokemonTypes types={item.details.types} id={item.details.id}/>
       </View>
-    </TouchableOpacity>
+    </Card>
   );
 };
 

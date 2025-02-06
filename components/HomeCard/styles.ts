@@ -39,6 +39,9 @@ const styles = StyleSheet.create({
     height: _cardWidth * .6,
     marginBottom: 8,
   },
+  centerSelf: {
+    alignSelf: 'center',
+  },
 });
 
 export default styles;

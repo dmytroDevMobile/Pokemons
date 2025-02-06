@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity } from 'react-native';
-import { ActivityIndicator, Button, Dialog, Portal, Text } from 'react-native-paper';
+import {
+  ActivityIndicator,
+  Button,
+  Dialog,
+  Portal,
+  Text,
+} from 'react-native-paper';
 
 import { useAppNavigation } from '@/hooks/useAppNavigation';
 import { fetchDetails } from '@/features/requests/fetchDetails';
