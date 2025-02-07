@@ -1,10 +1,12 @@
 import React from 'react';
-import { Image, View } from 'react-native';
-import styles from './styles';
+import { View } from 'react-native';
+import { Image } from 'expo-image';
 import { Card, Text } from 'react-native-paper';
+
 import { capitalizeFirstLetter } from '@/utils/helpers';
 import { PokemonTypes } from '../PokemonTypes';
 import { PokemonListItem } from '@/features/list/types';
+import styles from './styles';
 
 export interface HomeCardProps {
   item: PokemonListItem;

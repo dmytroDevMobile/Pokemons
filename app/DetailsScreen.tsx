@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import { StaticScreenProps } from '@react-navigation/native';
 
 import { Moves } from '@/components/Moves';
@@ -11,6 +11,7 @@ import { deviceWidth } from '@/constants/device';
 import { capitalizeFirstLetter } from '@/utils/helpers';
 import { RootStackParamList, Screens } from '@/navigation/types';
 import { Ability, Stat } from '@/features/list/types';
+import { Image } from 'expo-image';
 
 
 const Details = ({route}: StaticScreenProps<RootStackParamList[Screens.Details]>) => {
@@ -47,7 +48,10 @@ const Details = ({route}: StaticScreenProps<RootStackParamList[Screens.Details]>
                 <PokemonTypes types={details.types} id={details.id}/>
               </View>
               <Text style={styles.defaulText}>Exp: {details.base_experience}</Text>
-              <Image source={{ uri: details.sprites.other.home.front_default }} style={styles.pokemonImage}/>
+              <Image
+                source={{ uri: details.sprites.other.home.front_default }}
+                style={styles.pokemonImage}
+              />
             </View>
           </View>
           <View style={styles.card}>

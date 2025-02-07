@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   headerTitleLogoImage: {
     width: 100,
     height: 45,
+    marginLeft: -60,
   },
   headerPikachuLogoImage: {
     height: 45,

@@ -7,6 +7,8 @@ import {
   Portal,
   Text,
 } from 'react-native-paper';
+import { FAB } from '@react-native-material/core';
+import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
 import { useAppNavigation } from '@/hooks/useAppNavigation';
 import { fetchDetails } from '@/features/requests/fetchDetails';
@@ -52,17 +54,17 @@ export const Search = () => {
 
   return (
     <>
-    <Portal>
-          <Dialog visible={visible} onDismiss={hideDialog}>
-            <Dialog.Title>{dialogContent.title}</Dialog.Title>
-            <Dialog.Content>
-              <Text variant="bodyMedium">{dialogContent.content}</Text>
-            </Dialog.Content>
-            <Dialog.Actions>
-              <Button onPress={hideDialog}>Done</Button>
-            </Dialog.Actions>
-          </Dialog>
-        </Portal>
+      <Portal>
+        <Dialog visible={visible} onDismiss={hideDialog}>
+          <Dialog.Title>{dialogContent.title}</Dialog.Title>
+          <Dialog.Content>
+            <Text variant="bodyMedium">{dialogContent.content}</Text>
+          </Dialog.Content>
+          <Dialog.Actions>
+            <Button onPress={hideDialog}>Done</Button>
+          </Dialog.Actions>
+        </Dialog>
+      </Portal>
       <View style={styles.searchView}>
         <View style={styles.searchRow}>
           <TextInput
@@ -71,17 +73,13 @@ export const Search = () => {
             placeholder='E.g. Pikachu'
             style={!isIOS && styles.androidInputPadding}
           />
-          <TouchableOpacity
-            activeOpacity={0.9}
-            hitSlop={{ top: 15, right: 15, bottom: 15, left: 15 }}
+          <FAB
             onPress={go}
+            color='#354A5F'
             style={styles.searchGoButton}
-          >
-            { !loading
-              ? <Text style={styles.goButtonText}>Go</Text>
-              : <ActivityIndicator animating={true} size={14} color={'#F5F6F7'} />
-            }
-          </TouchableOpacity>
+            loading={loading}
+            icon={props => <Icon name='search-web' {...props} />}
+          />
         </View>
       </View>
     </>
