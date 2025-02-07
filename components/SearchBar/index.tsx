@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity } from 'react-native';
-import {
-  ActivityIndicator,
-  Button,
-  Dialog,
-  Portal,
-  Text,
-} from 'react-native-paper';
+import { View, TextInput } from 'react-native';
+import { Button, Dialog, Portal, Text } from 'react-native-paper';
 import { FAB } from '@react-native-material/core';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
