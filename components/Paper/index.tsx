@@ -1,6 +1,7 @@
 'use dom'
 import React from 'react';
 import {Paper} from '@mui/material';
+import { Text } from 'react-native';
 
 interface PaperViewProps {
   text: string;
@@ -8,7 +9,7 @@ interface PaperViewProps {
 
 const PaperView = ({text}: PaperViewProps) => (
   <Paper elevation={2}>
-    <text>{text}</text>
+    <Text>{text}</Text>
   </Paper>
 );
 
