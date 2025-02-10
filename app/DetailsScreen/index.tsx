@@ -6,6 +6,7 @@ import { Moves } from '@/components/Moves';
 import { Stats } from '@/components/Stats';
 import { DetailsHeader } from '@/components/DetailsHeader';
 import { PokemonTypes } from '@/components/PokemonTypes';
+import PaperView from '@/components/Paper';
 
 import { capitalizeFirstLetter } from '@/utils/helpers';
 import { RootStackParamList, Screens } from '@/navigation/types';
@@ -40,7 +41,7 @@ const Details = ({route}: StaticScreenProps<RootStackParamList[Screens.Details]>
           <View style={[styles.card, styles.row]}>
             <View style={styles.flex}>
               <Text style={styles.name}>{capitalizeFirstLetter(details.name)}</Text>
-              <Text style={styles.defaulText}>Order: #{details.order}</Text>
+              <PaperView text={`Order: #${details.order}`}/>
               {renderStats}
             </View>
             <View style={styles.rightContainer}>
