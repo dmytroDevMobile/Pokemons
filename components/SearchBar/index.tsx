@@ -4,8 +4,8 @@ import { Button, Dialog, Portal, Text } from 'react-native-paper';
 import { FAB } from '@react-native-material/core';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 
+import { useSearchDetails } from '@/hooks/useSearchDetails';
 import { useAppNavigation } from '@/hooks/useAppNavigation';
-import { fetchDetails } from '@/features/requests/fetchDetails';
 import { Screens } from '@/navigation/types';
 import { isIOS } from '@/constants/device';
 
@@ -18,6 +18,8 @@ export const Search = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [visible, setVisible] = useState<boolean>(false);
   const [dialogContent, setDialogContent] = useState({title: '', content: ''});
+
+  const {searchDetails} = useSearchDetails();
 
   const hideDialog = () => setVisible(false);
   const showDialog = (title: string, content: string) => {
@@ -36,7 +38,7 @@ export const Search = () => {
     setLoading(true);
 
     try {
-      const details = await fetchDetails(search.toLowerCase());
+      const details = await searchDetails(search);
       navigation.navigate(Screens.Details, {details});
     } catch (e) {
       setSearch('');

@@ -1,4 +1,4 @@
-import { PokemonListItem } from "@/features/list/listSlice";
+import { PokemonListItem } from "@/features/list/types";
 
 export enum Screens {
   Home = 'Home',
